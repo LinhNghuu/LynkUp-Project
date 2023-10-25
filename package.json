@@ -1,0 +1,22 @@
+{
+  "name": "lynkup-assignment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LinhNghuu/LynkUp-Assignment.git"
+  },
+  "keywords": [
+    "web322-final-project"
+  ],
+  "author": "LinhNguyen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LinhNghuu/LynkUp-Assignment/issues"
+  },
+  "homepage": "https://github.com/LinhNghuu/LynkUp-Assignment#readme"
+}

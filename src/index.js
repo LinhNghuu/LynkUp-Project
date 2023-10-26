@@ -9,7 +9,7 @@ app.set('view engine', 'ejs');
 // Set views directory
 app.set('views', path.join(__dirname, 'resources/views'));
 
-// For serving static files (if any)
+// For serving static files 
 app.use(express.static(path.join(__dirname, 'public')));
 
 

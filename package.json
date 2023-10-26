@@ -7,7 +7,6 @@
     "start": "nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "tailwindcss build -i ./src/public/css/tailwind.css -o ./src/public/css/main.css --watch"
-
   },
   "repository": {
     "type": "git",

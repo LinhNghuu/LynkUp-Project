@@ -1,3 +1,5 @@
+
+
 const express = require('express');
 const path = require('path');
 const app = express();
@@ -9,8 +11,9 @@ app.set('view engine', 'ejs');
 // Set views directory
 app.set('views', path.join(__dirname, 'resources/views'));
 
-// For serving static files 
+// For serving static files from the public directory
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 
 app.get('/', (req, res) => {

@@ -13,7 +13,7 @@ const route = require('./routes');
 app.set('view engine', 'ejs');
 
 // Set views directory
-app.set('views', path.join(__dirname, 'resources/views'));
+app.set('views', path.join(__dirname, 'resources','views'));
 
 // For serving static files from the public directory
 app.use(express.static(path.join(__dirname, 'public')));
@@ -21,6 +21,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 // get route init
 route(app);
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`App listening on port ${port}`);
+  console.log(`App listening at http://localhost:${port}`);
 });

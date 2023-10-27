@@ -21,41 +21,65 @@
         <!-- Sidebar -->
         <div class="w-1/4 rounded p-6">
           <div class="mb-4 flex flex-col items-center">
-            <img src="img/shin.jpeg" alt="Profile" class="w-16 h-16 rounded-full mb-2">
+            <img
+              src="img/shin.jpeg"
+              alt="Profile"
+              class="w-16 h-16 rounded-full mb-2"
+            />
             <h2 class="text-lg font-semibold">KOKOJIDAU</h2>
           </div>
           <div>
-            <a href="#" class="flex items-center space-x-2 py-1 hover:bg-gray-200 rounded">
+            <a
+              href="#"
+              class="flex items-center space-x-2 py-1 hover:bg-gray-200 rounded"
+            >
               <i class="fas fa-home text-gray-600"></i>
               <span class="text-gray-700">Home</span>
             </a>
-            <a href="#" class="flex items-center space-x-2 py-1 hover:bg-gray-200 rounded">
+            <a
+              href="#"
+              class="flex items-center space-x-2 py-1 hover:bg-gray-200 rounded"
+            >
               <i class="fas fa-user-friends text-gray-600"></i>
               <span class="text-gray-700">Friends</span>
             </a>
-            <a href="#" class="flex items-center space-x-2 py-1 hover:bg-gray-200 rounded">
+            <a
+              href="#"
+              class="flex items-center space-x-2 py-1 hover:bg-gray-200 rounded"
+            >
               <i class="fas fa-bell text-gray-600"></i>
               <span class="text-gray-700">Notifications</span>
             </a>
-            <a href="#" class="flex items-center space-x-2 py-1 hover:bg-gray-200 rounded">
+            <a
+              href="#"
+              class="flex items-center space-x-2 py-1 hover:bg-gray-200 rounded"
+            >
               <i class="fas fa-envelope text-gray-600"></i>
               <span class="text-gray-700">Messages</span>
             </a>
-            <a href="#" class="flex items-center space-x-2 py-1 hover:bg-gray-200 rounded">
+            <a
+              href="#"
+              class="flex items-center space-x-2 py-1 hover:bg-gray-200 rounded"
+            >
               <i class="fas fa-bookmark text-gray-600"></i>
               <span class="text-gray-700">Bookmarks</span>
             </a>
-            <a href="#" class="flex items-center space-x-2 py-1 hover:bg-gray-200 rounded">
+            <a
+              href="#"
+              class="flex items-center space-x-2 py-1 hover:bg-gray-200 rounded"
+            >
               <i class="fas fa-list-alt text-gray-600"></i>
               <span class="text-gray-700">Lists</span>
             </a>
-            <a href="#" class="flex items-center space-x-2 py-1 hover:bg-gray-200 rounded">
+            <a
+              href="#"
+              class="flex items-center space-x-2 py-1 hover:bg-gray-200 rounded"
+            >
               <i class="fas fa-ellipsis-h text-gray-600"></i>
               <span class="text-gray-700">More</span>
             </a>
           </div>
         </div>
-        
 
         <!-- Feed -->
         <div class="w-1/2 mx-3">
@@ -74,12 +98,47 @@
           </div>
 
           <!-- Posts -->
-          <div class="bg-white p-4 rounded mb-4">
-            <!-- Replace with your post content -->
-            <h2 class="text-lg font-semibold">Post Title</h2>
-            <p>Post content...</p>
-          </div>
-          <!-- Add more posts -->
+          <ul class="space-y-4">
+            <% person.forEach(function(person) { %>
+            <li
+              class="post bg-white p-4 rounded shadow-md flex items-start space-x-4"
+            >
+            <a href="/person/<%= person.slug %>"> <img
+                class="post__avatar w-16 h-16 rounded-full"
+                src="<%= person.avatar %>"
+                alt="User Image"
+              /></a>
+              <div class="post__body flex flex-col flex-grow">
+                <div class="post__header">
+                  <div class="post__headerText">
+                    <h3 class="text-md font-medium inline">
+                      <a href="/person/<%= person.slug %>">
+                        <%= person.name %></a
+                      >
+                    </h3>
+                  </div>
+                  <div class="post__headerDescription mt-1">
+                    <p class="text-sm text-gray-700">
+                      <%= person.description %>
+                    </p>
+                  </div>
+                </div>
+                <div class="post__image">
+                  <img
+                    class="mt-2 rounded"
+                    src="<%= person.image %>"
+                    alt="Post Image"
+                  />
+                </div>
+                <div class="post__footer mt-2 flex justify-between">
+                  <i class="fas fa-retweet text-gray-600"></i>
+                  <i class="fas fa-heart text-gray-600"></i>
+                  <i class="fas fa-share text-gray-600"></i>
+                </div>
+              </div>
+            </li>
+            <% }) %>
+          </ul>
         </div>
 
         <!-- Right Sidebar -->
@@ -88,14 +147,12 @@
             <h2 class="text-lg font-semibold mb-4">What's happening?</h2>
             <div class="post__avatar">
               <img
-              class="w-10 h-10 rounded-full object-cover"
-              src="img/Barbie-Niki.jpeg"
+                class="w-10 h-10 rounded-full object-cover"
+                src="img/Barbie-Niki.jpeg"
                 alt=""
               />
             </div>
             <div class="post flex items-start space-x-4">
-            
-          
               <div class="post__body flex flex-col">
                 <div class="post__header">
                   <div class="post__headerText">
@@ -107,14 +164,13 @@
                     </h3>
                   </div>
                   <div class="post__headerDescription mt-1">
-                    <p class="text-sm text-gray-700">Are you a magician? Because whenever I look at you, everyone else disappears.</p>
+                    <p class="text-sm text-gray-700">
+                      Are you a magician? Because whenever I look at you,
+                      everyone else disappears.
+                    </p>
                   </div>
                 </div>
-                <img
-                  class="mt-2 rounded"
-                  src="img/Barbie-Niki.jpeg"
-                  alt=""
-                />
+                <img class="mt-2 rounded" src="img/Barbie-Niki.jpeg" alt="" />
                 <div class="post__footer mt-2 flex justify-between">
                   <i class="fas fa-retweet text-gray-600"></i>
                   <i class="fas fa-heart text-gray-600"></i>
@@ -123,10 +179,7 @@
               </div>
             </div>
           </div>
-          
-          
         </div>
-        
       </div>
     </main>
 

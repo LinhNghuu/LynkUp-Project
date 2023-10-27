@@ -3,6 +3,9 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
+// connect db
+const db = require('./config/db');
+db.connect();
 
 // set routes
 const route = require('./routes');

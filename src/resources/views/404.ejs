@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="valentine">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+    <title>404</title>
+  </head>
+  <body>
+    <header>
+      <!-- Include the navbar here -->
+      <%- include('partials/navbar', {page: '/'}) %>
+    </header>
+<!-- 404 -->
+<section class="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 h-screen flex flex-col justify-center items-center text-white">
+    <h1 class="text-9xl font-extrabold animate__animated animate__bounceInDown">
+      404
+    </h1>
+    <p class="text-2xl font-semibold animate__animated animate__fadeIn">
+      Oops! The page you're looking for can't be found.
+    </p>
+    <a href="/" class="mt-5 px-8 py-3 rounded-full bg-white text-purple-600 font-bold text-lg animate__animated animate__bounce animate__infinite">
+      Take Me Home
+    </a>
+  </section>
+      <footer>
+        <!-- Include the footer here -->
+        <%- include('partials/footer') %>
+      </footer>
+    </body>
+  </html>
+  

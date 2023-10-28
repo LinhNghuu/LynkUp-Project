@@ -8,7 +8,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     />
-    <title>Document</title>
+    <title>Home</title>
   </head>
   <body>
     <header>
@@ -80,57 +80,62 @@
             </a>
           </div>
         </div>
-
-        <!-- Feed -->
-        <div class="w-1/2 mx-3">
-          <!-- Post Box -->
-          <div class="bg-white p-4 rounded mb-4">
-            <input
-              type="text"
-              class="w-full p-2 rounded border"
-              placeholder="What's on your mind?"
-            />
-            <button
-              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2"
-            >
-              Post
-            </button>
-          </div>
-
-          <!-- Posts -->
-          <ul class="space-y-4">
-            <% person.forEach(function(person) { %>
-            <li class="post bg-white p-4 rounded shadow-md flex items-start space-x-4">
-              <a href="/person/<%= person.slug %>">
-                <img class="post__avatar w-16 h-16 rounded-full object-cover" src="<%= person.img %>" alt="User Image"/>
-              </a>
-              <div class="post__body flex flex-col flex-grow">
-                <div class="post__header">
-                  <div class="post__headerText">
-                    <h3 class="text-md font-medium inline">
-                      <a href="/person/<%= person.slug %>"><%= person.name %></a>
-                    </h3>
-                  </div>
-                  <div class="post__headerDescription mt-1">
-                    <p class="text-sm text-gray-700">
-                      <%= person.status %>
-                    </p>
-                  </div>
-                </div>
-                <div class="post__image">
-                  <img class="mt-2 rounded object-cover w-full h-68" src="<%= person.img %>" alt="Post Image"/>
-                </div>
-                <div class="post__footer mt-2 flex justify-between">
-                  <i class="fas fa-retweet text-gray-600"></i>
-                  <i class="fas fa-heart text-gray-600"></i>
-                  <i class="fas fa-share text-gray-600"></i>
-                </div>
-              </div>
-            </li>
-            <% }) %>
-          </ul>
-          
+     <!-- Feed -->
+     <div class="w-1/2 mx-3 bg-gray-100">
+      <!-- Post Box -->
+      <div class="bg-white p-4 rounded-lg mb-4 shadow-2xl animate__animated animate__fadeInUp text-black border-b-8 border-pink-400 transform hover:scale-105 transition duration-500 ease-in-out">
+        <h4 class="text-3xl font-extrabold text-pink-700 leading-snug hover:text-pink-800 transition duration-300">
+          Let's Keep the Conversation Going!!
+        </h4>
+        <h1 class="text-3xl font-black mt-2 mb-4 text-pink-700 leading-none hover:text-pink-800 transition duration-300">
+          Stop using <span class="text-red-500 hover:text-red-600 transition duration-300">Only</span> <i class="fa-solid fa-fan text-red-500 hover:text-red-600 transition duration-300"></i>'s
+        </h1>
+        <div class="flex space-x-4 mt-4">
+          <button class="bg-pink-700 text-white rounded-full py-2 px-6 hover:bg-pink-800 transition duration-300">
+            Do Something
+          </button>
+          <button class="bg-red-500 text-white rounded-full py-2 px-6 hover:bg-red-600 transition duration-300">
+            Cancel
+          </button>
         </div>
+      </div>
+      
+      
+    
+    <!-- Posts -->
+    <ul class="space-y-4">
+      <% person.forEach(function(person) { %>
+        <li class="post bg-white p-4 rounded shadow-md flex items-start space-x-4 transition-all hover:shadow-lg animate__animated animate__fadeInUp text-black border-b-2 border-red-200">
+          <a href="/person/<%= person.slug %>">
+          <img class="post__avatar w-16 h-16 rounded-full object-cover transition-all hover:scale-105" src="<%= person.img %>" alt="User Image"/>
+        </a>
+        <div class="post__body flex flex-col flex-grow">
+          <div class="post__header">
+            <div class="post__headerText">
+              <h3 class="text-md font-medium inline text-gray-800">
+                <a href="/person/<%= person.slug %>"><%= person.name %></a>
+              </h3>
+            </div>
+            <div class="post__headerDescription mt-1">
+              <p class="text-sm text-gray-700 italic">
+                <%= person.status %>
+              </p>
+            </div>
+          </div>
+          <div class="post__image">
+            <img class="mt-2 rounded object-cover w-full h-68" src="<%= person.img %>" alt="Post Image"/>  <!-- Removed the hover:scale-105 -->
+          </div>
+          <div class="post__footer mt-2 flex justify-between">
+            <i class="fas fa-retweet text-gray-600 hover:text-blue-400"></i>
+            <i class="fas fa-heart text-gray-600 hover:text-red-400"></i>
+            <i class="fas fa-share text-gray-600 hover:text-green-400"></i>
+          </div>
+        </div>
+      </li>
+      <% }) %>
+    </ul>
+  </div>
+
 
         <!-- Right Sidebar -->
         <div class="w-1/4 rounded p-3">

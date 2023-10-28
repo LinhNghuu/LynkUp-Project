@@ -4,13 +4,15 @@ class SiteController {
   //[get] /
   index(req, res) {
     Person.find({})
+      .sort({ date: -1 })  // Sort by date in descending order
       .then((person) => {
-        res.render('home',{
+        res.render('home', {
           person: person
         });
       })
       .catch((error) => {
-        res.status(404).json({ error: 'error' });
+        console.error(error);  // Log the error for debugging
+        res.status(404).render('404');  // Render your 404 view
       });
   }
   // [get] /search

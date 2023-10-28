@@ -1,10 +1,10 @@
 const personRouter = require('./person');
-const newsRouter = require('./news');
+const manageRouter = require('./manage');
 const siteRouter = require('./site');
 
 function route(app) {
   app.use('/person', personRouter);
-  app.use('/news', newsRouter);
+  app.use('/manage', manageRouter);
 
   app.use('/', siteRouter);
 }

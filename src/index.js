@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const methodOverride = require('method-override');
 const port = 3000;
 
 // connect db
@@ -11,13 +12,15 @@ app.use(express.json());
 
 // for parsing application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
+// method overrides
+app.use(methodOverride('_method'));
 // set routes
 const route = require('./routes');
 // Set view engine
 app.set('view engine', 'ejs');
 
 // Set views directory
-app.set('views', path.join(__dirname, 'resources','views'));
+app.set('views', path.join(__dirname, 'resources', 'views'));
 
 // For serving static files from the public directory
 app.use(express.static(path.join(__dirname, 'public')));

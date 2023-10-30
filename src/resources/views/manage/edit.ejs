@@ -13,7 +13,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
 
-    <title>Create</title>
+    <title>Edit</title>
   </head>
   <body>
     <header>
@@ -89,88 +89,125 @@
           <form
             class="bg-white rounded-xl p-5 shadow-lg"
             method="POST"
-            action="/manage/store"
+            action="/manage/<%= person._id %>?_method=PUT"
           >
             <h1 class="text-gray-800 font-bold text-2xl mb-1">
-              Let's Get to Know You!
+              Update Your Details
             </h1>
             <p class="text-sm font-normal text-gray-600 mb-7">
-              Could you please spill the beans on these details?
+              Please update the information below as needed.
             </p>
-
             <!-- Name Input -->
-            <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
-              <input
-                class="pl-2 outline-none border-none"
-                type="text"
-                name="name"
-                id="name"
-                placeholder="Full name"
-              />
+            <div class="mb-4">
+              <label for="name" class="text-sm text-gray-600 mb-1 block"
+                >Full Name</label
+              >
+              <div class="flex items-center border-2 py-2 px-3 rounded-2xl">
+                <input
+                  class="pl-2 outline-none border-none"
+                  type="text"
+                  name="name"
+                  value="<%= person.name %>"
+                  id="name"
+                  placeholder="Full name"
+                />
+              </div>
             </div>
 
             <!-- Position Input -->
-            <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
-              <input
-                class="pl-2 outline-none border-none"
-                type="text"
-                name="position"
-                id="position"
-                placeholder="Position"
-              />
+            <div class="mb-4">
+              <label for="position" class="text-sm text-gray-600 mb-1 block"
+                >Position</label
+              >
+              <div class="flex items-center border-2 py-2 px-3 rounded-2xl">
+                <input
+                  class="pl-2 outline-none border-none"
+                  type="text"
+                  name="position"
+                  value="<%= person.position %>"
+                  id="position"
+                  placeholder="Position"
+                />
+              </div>
             </div>
 
             <!-- Education Input -->
-            <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
-              <input
-                class="pl-2 outline-none border-none"
-                type="text"
-                name="education"
-                id="education"
-                placeholder="Education"
-              />
+            <div class="mb-4">
+              <label for="education" class="text-sm text-gray-600 mb-1 block"
+                >Education</label
+              >
+              <div class="flex items-center border-2 py-2 px-3 rounded-2xl">
+                <input
+                  class="pl-2 outline-none border-none"
+                  type="text"
+                  name="education"
+                  value="<%= person.education %>"
+                  id="education"
+                  placeholder="Education"
+                />
+              </div>
             </div>
 
             <!-- Location Input -->
-            <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
-              <input
-                class="pl-2 outline-none border-none"
-                type="text"
-                name="location"
-                id="location"
-                placeholder="Location"
-              />
+            <div class="mb-4">
+              <label for="location" class="text-sm text-gray-600 mb-1 block"
+                >Location</label
+              >
+              <div class="flex items-center border-2 py-2 px-3 rounded-2xl">
+                <input
+                  class="pl-2 outline-none border-none"
+                  type="text"
+                  name="location"
+                  value="<%= person.location %>"
+                  id="location"
+                  placeholder="Location"
+                />
+              </div>
             </div>
 
             <!-- Status Input -->
-            <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
-              <input
-                class="pl-2 outline-none border-none"
-                type="text"
-                name="status"
-                id="status"
-                placeholder="Status"
-              />
+            <div class="mb-4">
+              <label for="status" class="text-sm text-gray-600 mb-1 block"
+                >Status</label
+              >
+              <div class="flex items-center border-2 py-2 px-3 rounded-2xl">
+                <textarea
+                  class="pl-2 outline-none border-none resize-none w-full h-20"
+                  name="status"
+                  id="status"
+                  placeholder="Status"
+                  rows="4"
+                >
+  <%= person.status %>
+      </textarea
+                >
+              </div>
             </div>
 
             <!-- Description Input -->
-            <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
-              <textarea
-                type="text"
-                class="pl-2 outline-none border-none resize-none"
-                name="description"
-                id="description"
-                placeholder="Description"
-                rows="4"
-              ></textarea>
+            <div class="mb-4">
+              <label for="description" class="text-sm text-gray-600 mb-1 block"
+                >Description</label
+              >
+              <div class="flex items-center border-2 py-2 px-3 rounded-2xl">
+                <textarea
+                  class="pl-2 outline-none border-none resize-none w-full h-32"
+                  name="description"
+                  id="description"
+                  placeholder="Description"
+                  rows="4"
+                >
+  <%= person.description %>
+      </textarea
+                >
+              </div>
             </div>
-
             <!-- Submit Button -->
             <button
               type="submit"
               class="block w-full bg-indigo-600 mt-4 py-2 rounded-2xl text-white font-semibold mb-2"
             >
-              Submit
+              Update
             </button>
           </form>
         </div>

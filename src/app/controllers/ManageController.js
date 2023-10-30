@@ -4,27 +4,62 @@ class ManageController {
   //[POST] /manage/store
   store(req, res, next) {
     const person = new Person(req.body);
-    person.save()
+    person
+      .save()
       .then(() => res.redirect('/'))
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
-        res.status(500).render('404');  // Render your 500 Internal Server Error page
+        res.status(500).render('404');
       });
   }
   //[GET] /manage/create
   create(req, res, next) {
     res.render('manage/create');
   }
-  // [GET] /manage
-  show(req, res, next) {
-    // If you're planning to fetch some data, then handle the error like this
-    // YourDatabaseModel.find({})
-    //   .then(data => res.render('yourView', { data }))
-    //   .catch(err => {
-    //     console.log(err);
-    //     res.status(404).render('404');  // Render your 404 page
-    //   });
+  //[GET] /manage/store
+  manage(req, res, next) {
+    Person.find({})
+      .sort({ date: -1 })
+      .then((person) => {
+        res.render('manage/store', {
+          person: person,
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+        res.status(404).render('404');
+      });
   }
+  //[GET] /manage/edit/:id
+  edit(req, res, next) {
+    Person.findById(req.params.id)
+      .then((person) => {
+        res.render('manage/edit', {
+          person: person,
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+        res.status(404).render('404');
+      });
+  }
+//[PUT] /manage/:id
+update(req, res, next) {
+  // Trim the status and description fields before updating
+  if (req.body.status) {
+    req.body.status = req.body.status.trim();
+  }
+  if (req.body.description) {
+    req.body.description = req.body.description.trim();
+  }
+  Person.updateOne({ _id: req.params.id }, req.body)
+    .then(() => res.redirect('/manage/store'))
+    .catch((error) => {
+      console.error(error);
+      res.status(404).render('404');
+    });
+}
+
 }
 
 module.exports = new ManageController();

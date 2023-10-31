@@ -43,23 +43,31 @@ class ManageController {
         res.status(404).render('404');
       });
   }
-//[PUT] /manage/:id
-update(req, res, next) {
-  // Trim the status and description fields before updating
-  if (req.body.status) {
-    req.body.status = req.body.status.trim();
+  //[PUT] /manage/:id
+  update(req, res, next) {
+    // Trim the status and description fields before updating
+    if (req.body.status) {
+      req.body.status = req.body.status.trim();
+    }
+    if (req.body.description) {
+      req.body.description = req.body.description.trim();
+    }
+    Person.updateOne({ _id: req.params.id }, req.body)
+      .then(() => res.redirect('/manage/store'))
+      .catch((error) => {
+        console.error(error);
+        res.status(404).render('404');
+      });
   }
-  if (req.body.description) {
-    req.body.description = req.body.description.trim();
+  //[DELETE] /manage/:id
+  destroy(req, res, next) {
+    Person.deleteOne({ _id: req.params.id })
+      .then(() => res.redirect('back'))
+      .catch((error) => {
+        console.error(error);
+        res.status(404).render('404');
+      });
   }
-  Person.updateOne({ _id: req.params.id }, req.body)
-    .then(() => res.redirect('/manage/store'))
-    .catch((error) => {
-      console.error(error);
-      res.status(404).render('404');
-    });
-}
-
 }
 
 module.exports = new ManageController();

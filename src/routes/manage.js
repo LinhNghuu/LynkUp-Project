@@ -7,5 +7,6 @@ router.post('/store', manageController.store);
 router.get('/store', manageController.manage);
 router.get('/edit/:id', manageController.edit);
 router.put('/:id', manageController.update);
+router.delete('/:id', manageController.destroy);
 router.get('/', manageController.manage);
 module.exports = router;

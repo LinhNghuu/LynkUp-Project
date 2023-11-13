@@ -1,38 +1,47 @@
+// Importing necessary modules
 const express = require('express');
 const path = require('path');
 const app = express();
 const methodOverride = require('method-override');
 const port = 3000;
 
-// connect db
+// Load environment variables from .env file
+require('dotenv').config({ path: '.env' });
+
+// Connect to the database
 const db = require('./config/db');
 db.connect();
-// for parsing application/json
+
+// Middleware for parsing JSON data in requests
 app.use(express.json());
 
-// for parsing application/x-www-form-urlencoded
+// Middleware for parsing URL-encoded data (form submissions)
 app.use(express.urlencoded({ extended: true }));
-// method overrides
+
+// Middleware to allow HTTP verb (method) override, useful for supporting PUT/DELETE where client doesn't support it
 app.use(methodOverride('_method'));
-// set routes
+
+// Importing and setting up routes
 const route = require('./routes');
-// Set view engine
+
+// Set EJS as the templating engine
 app.set('view engine', 'ejs');
 
-// Set views directory
+// Set the views directory for EJS templates
 app.set('views', path.join(__dirname, 'resources', 'views'));
 
-// For serving static files from the public directory
+// Serve static files (CSS, JS, images) from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
 
-// get route init
+// Initialize routes
 route(app);
 
-// Catch 404 and forward to error handler
+// Middleware to handle 404 errors (Page Not Found)
 app.use((req, res, next) => {
   res.status(404).render('404');
 });
 
+// Start the server and listen on the specified port
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
   console.log(`App listening at http://localhost:${port}`);

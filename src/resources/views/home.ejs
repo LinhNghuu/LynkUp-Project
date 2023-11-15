@@ -8,6 +8,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <title>Home</title>
   </head>
   <body>
@@ -80,62 +84,94 @@
             </a>
           </div>
         </div>
-     <!-- Feed -->
-     <div class="w-1/2 mx-3 bg-gray-100">
-      <!-- Post Box -->
-      <div class="bg-white p-4 rounded-lg mb-4 shadow-2xl animate__animated animate__fadeInUp text-black border-b-8 border-pink-400 transform hover:scale-105 transition duration-500 ease-in-out">
-        <h4 class="text-3xl font-extrabold text-pink-700 leading-snug hover:text-pink-800 transition duration-300">
-          Let's Keep the Conversation Going!!
-        </h4>
-        <h1 class="text-3xl font-black mt-2 mb-4 text-pink-700 leading-none hover:text-pink-800 transition duration-300">
-          Stop using <span class="text-red-500 hover:text-red-600 transition duration-300">Only</span> <i class="fa-solid fa-fan text-red-500 hover:text-red-600 transition duration-300"></i>'s
-        </h1>
-        <div class="flex space-x-4 mt-4">
-          <button class="bg-pink-700 text-white rounded-full py-2 px-6 hover:bg-pink-800 transition duration-300">
-            Do Something
-          </button>
-          <button class="bg-red-500 text-white rounded-full py-2 px-6 hover:bg-red-600 transition duration-300">
-            Cancel
-          </button>
-        </div>
-      </div>
-      
-      
-    
-    <!-- Posts -->
-    <ul class="space-y-4">
-      <% person.forEach(function(person) { %>
-        <li class="post bg-white p-4 rounded shadow-md flex items-start space-x-4 transition-all hover:shadow-lg animate__animated animate__fadeInUp text-black border-b-2 border-red-200">
-          <a href="/person/<%= person.slug %>">
-          <img class="post__avatar w-16 h-16 rounded-full object-cover transition-all hover:scale-105" src="<%= person.img %>" alt="User Image"/>
-        </a>
-        <div class="post__body flex flex-col flex-grow">
-          <div class="post__header">
-            <div class="post__headerText">
-              <h3 class="text-md font-medium inline text-gray-800">
-                <a href="/person/<%= person.slug %>"><%= person.name %></a>
-              </h3>
-            </div>
-            <div class="post__headerDescription mt-1">
-              <p class="text-sm text-gray-700 italic">
-                <%= person.status %>
-              </p>
+        <!-- Feed -->
+        <div class="w-1/2 mx-3 bg-gray-100">
+          <!-- Post Box -->
+          <div
+            class="bg-white p-4 rounded-lg mb-4 shadow-2xl animate__animated animate__fadeInUp text-black border-b-8 border-pink-400 transform hover:scale-105 transition duration-500 ease-in-out"
+          >
+            <h4
+              class="text-3xl font-extrabold text-pink-700 leading-snug hover:text-pink-800 transition duration-300"
+            >
+              Let's Keep the Conversation Going!!
+            </h4>
+            <h1
+              class="text-3xl font-black mt-2 mb-4 text-pink-700 leading-none hover:text-pink-800 transition duration-300"
+            >
+              Stop using
+              <span
+                class="text-red-500 hover:text-red-600 transition duration-300"
+                >Only</span
+              >
+              <i
+                class="fa-solid fa-fan text-red-500 hover:text-red-600 transition duration-300"
+              ></i
+              >'s
+            </h1>
+            <div class="flex space-x-4 mt-4">
+              <button
+                class="bg-pink-700 text-white rounded-full py-2 px-6 hover:bg-pink-800 transition duration-300"
+              >
+                <a href="/manage/create">Do Something</a>
+              </button>
+              <button
+                class="cancel-button bg-red-500 text-white rounded-full py-2 px-6 hover:bg-red-600 transition duration-300"
+              >
+                Cancel
+              </button>
             </div>
           </div>
-          <div class="post__image">
-            <img class="mt-2 rounded object-cover w-full h-68" src="<%= person.img %>" alt="Post Image"/>  <!-- Removed the hover:scale-105 -->
-          </div>
-          <div class="post__footer mt-2 flex justify-between">
-            <i class="fas fa-retweet text-gray-600 hover:text-blue-400"></i>
-            <i class="fas fa-heart text-gray-600 hover:text-red-400"></i>
-            <i class="fas fa-share text-gray-600 hover:text-green-400"></i>
-          </div>
-        </div>
-      </li>
-      <% }) %>
-    </ul>
-  </div>
 
+          <!-- Posts -->
+          <ul class="space-y-4">
+            <% person.forEach(function(person) { %>
+            <li
+              class="post bg-white p-4 rounded shadow-md flex items-start space-x-4 transition-all hover:shadow-lg animate__animated animate__fadeInUp text-black border-b-2 border-red-200"
+            >
+              <a href="/person/<%= person.slug %>">
+                <img
+                  class="post__avatar w-16 h-16 rounded-full object-cover transition-all hover:scale-105"
+                  src="<%= person.img %>"
+                  alt="User Image"
+                />
+              </a>
+              <div class="post__body flex flex-col flex-grow">
+                <div class="post__header">
+                  <div class="post__headerText">
+                    <h3 class="text-md font-medium inline text-gray-800">
+                      <a href="/person/<%= person.slug %>"
+                        ><%= person.name %></a
+                      >
+                    </h3>
+                  </div>
+                  <div class="post__headerDescription mt-1">
+                    <p class="text-sm text-gray-700 italic">
+                      <%= person.status %>
+                    </p>
+                  </div>
+                </div>
+                <div class="post__image">
+                  <img
+                    class="mt-2 rounded object-cover w-full h-68"
+                    src="<%= person.img %>"
+                    alt="Post Image"
+                  />
+                  <!-- Removed the hover:scale-105 -->
+                </div>
+                <div class="post__footer mt-2 flex justify-between">
+                  <i
+                    class="fas fa-retweet text-gray-600 hover:text-blue-400"
+                  ></i>
+                  <i class="fas fa-heart text-gray-600 hover:text-red-400"></i>
+                  <i
+                    class="fas fa-share text-gray-600 hover:text-green-400"
+                  ></i>
+                </div>
+              </div>
+            </li>
+            <% }) %>
+          </ul>
+        </div>
 
         <!-- Right Sidebar -->
         <div class="w-1/4 rounded p-3">
@@ -177,11 +213,72 @@
           </div>
         </div>
       </div>
+
+      <!-- Popup Modal -->
+      <div
+        id="cancel-modal"
+        class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full flex items-start justify-center animate__animated animate__fadeIn mt-16"
+      >
+        <div
+          class="relative w-full max-w-md max-h-full bg-white rounded-lg shadow-lg ring-4 ring-opacity-50 ring-red-300"
+        >
+          <div class="p-6">
+            <!-- Enhanced Text Style -->
+            <h2
+              class="text-3xl md:text-4xl font-bold text-pink-600 leading-tight mb-4 tracking-wider"
+            >
+              Cancel for what?
+              <span class="text-red-500"
+                ><i class="fas fa-question-circle"></i
+              ></span>
+            </h2>
+            <div class="flex justify-end gap-2">
+              <button
+                id="close-modal-btn"
+                type="button"
+                class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
     <footer>
       <!-- Include the footer -->
       <%- include('partials/footer') %>
     </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const cancelButton = document.querySelector('.cancel-button');
+        const cancelModal = document.getElementById('cancel-modal');
+        const closeModalButton = document.getElementById('close-modal-btn');
+        // Function to show the modal
+        const showModal = () => {
+          cancelModal.style.display = 'flex';
+          // Hide the modal after 5 seconds
+          setTimeout(() => {
+            cancelModal.style.display = 'none';
+          }, 5000);
+        };
+        // Function to hide the modal
+        const hideModal = () => {
+          cancelModal.style.display = 'none';
+        };
+        // Show the modal when 'Cancel' is clicked
+        cancelButton.addEventListener('click', showModal);
+        // Hide the modal when clicking on the close button
+        closeModalButton.addEventListener('click', hideModal);
+        // Hide the modal when clicking outside the content area
+        cancelModal.addEventListener('click', function (event) {
+          if (event.target === cancelModal) {
+            hideModal();
+          }
+        });
+      });
+    </script>
   </body>
 </html>

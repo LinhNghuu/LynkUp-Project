@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="valentine">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <title>Login</title>
+  </head>
+  <body>
+    <header>
+      <!-- Include the navbar -->
+      <%- include('./partials/navbar', {page: '/login'}) %>
+    </header>
+    <main>
+      <!-- Main Content -->
+      <div class="md:flex">
+        <!-- Left Side (Same as Create Page) -->
+        <div
+          class="relative overflow-hidden md:flex w-1/2 bg-gradient-to-r from-purple-600 via-pink-600 to-red-500 justify-around items-center hidden animate__animated animate__fadeInLeft"
+        >
+          <div class="p-10">
+            <h1
+              class="text-white font-extrabold text-5xl md:text-6xl font-mono animate__animated animate__fadeInDown"
+            >
+              Discover Love's Journey 💖
+            </h1>
+            <p
+              class="text-white mt-4 text-lg md:text-xl font-serif animate__animated animate__fadeInUp"
+            >
+              Let's embark on a path of connection, understanding, and
+              affection.
+              <span
+                class="text-red-300 animate__animated animate__pulse animate__infinite"
+                >Together</span
+              >.
+            </p>
+            <button
+              type="submit"
+              class="mt-6 bg-white text-purple-500 py-2 px-6 rounded-full font-bold mb-2 hover:bg-purple-500 hover:text-white transition duration-300 animate__animated animate__bounce"
+            >
+              <a href="/register">Join Now</a>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Side -->
+        <div
+          class="flex md:w-1/2 justify-center py-10 items-center bg-gradient-to-tr from-purple-500 via-pink-500 to-red-400 animate__animated animate__fadeInRight"
+        >
+          <form
+            class="bg-white rounded-xl p-5 shadow-lg"
+            method="POST"
+            action="/login"
+          >
+            <h1 class="text-gray-800 font-bold text-2xl mb-1">Welcome Back!</h1>
+            <p class="text-sm font-normal text-gray-600 mb-7">
+              Please enter your details.
+            </p>
+
+            <!-- Display error message if exists -->
+            <% if (errorMessage) { %>
+            <div class="text-red-600 mb-3"><%= errorMessage %></div>
+            <% } %>
+
+            <!-- Username Input -->
+            <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+              <input
+                class="pl-2 outline-none border-none"
+                type="text"
+                name="username"
+                id="username"
+                placeholder="Username"
+                required
+              />
+            </div>
+
+            <!-- Password Input -->
+            <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+              <input
+                class="pl-2 outline-none border-none"
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+                required
+              />
+            </div>
+
+            <!-- Submit Button -->
+            <button
+              type="submit"
+              class="block w-full bg-indigo-600 mt-4 py-2 rounded-2xl text-white font-semibold mb-2"
+            >
+              Log In
+            </button>
+
+            <!-- Registration Link -->
+            <p class="text-sm font-normal text-gray-600 mb-7">
+              Don't have an account?
+              <a href="/register" class="text-indigo-600 hover:text-indigo-500"
+                >Sign up</a
+              >
+            </p>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <!-- Include the footer -->
+      <%- include('./partials/footer') %>
+    </footer>
+  </body>
+</html>

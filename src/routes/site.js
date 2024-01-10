@@ -15,5 +15,19 @@ router.get('/search', siteController.search);
 // and use the 'index' method of siteController to handle the request
 router.get('/', siteController.index);
 
-// Export the router so it can be used in other parts of the application
+// Define a GET route for '/login' 
+// and use the 'login' method of siteController to handle the request
+router.get('/login', siteController.login);
+
+// Define a GET route for '/register'
+router.get('/register', siteController.register);
+
+// Define a POST route for '/register'
+router.post('/register', siteController.registerUser);
+// Define a POST route for '/login'
+router.post('/login', siteController.loginPost);
+// Define a GET route for '/logout'
+router.get('/logout', siteController.logout);
+
+
 module.exports = router;
